@@ -2,6 +2,9 @@
 import sentry_sdk
 from sentry_sdk.integrations.django import DjangoIntegration
 
+#translate
+from django.utils.translation import gettext_lazy as _
+
 from pathlib import Path
 import os
 import datetime
@@ -22,6 +25,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'modeltranslation',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -38,6 +42,9 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework_simplejwt',
     'drf_yasg',
+    'django_extensions',
+    'ckeditor',
+    'ckeditor_uploader',
 ]
 
 MIDDLEWARE = [
@@ -140,10 +147,26 @@ CORS_ALLOW_METHODS = ("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS")
 
 LANGUAGE_CODE = 'uz'
 
+LANGUAGES = [
+    ("ru", _("Russian")),
+    ("uz", _("Uzbek")),
+    ("en", _("English")),
+]
+
+LOCALE_PATHS = [
+    BASE_DIR / "locale/",
+]
+
+# MODELTRANSLATION_TRANSLATION_FILES = (
+#     "api.v1.university.translations",
+#     "api.v1.company.translations",
+#     "api.v1.common.translations",
+# )
+
 TIME_ZONE = 'Asia/Tashkent'
 
 USE_I18N = True
-
+USE_L10N = True
 USE_TZ = True
 
 
@@ -159,6 +182,17 @@ MEDIA_URL = '/media/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#ckeditor settings
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'full',
+    },
+}
+CKEDITOR_UPLOAD_PATH = 'uploads/'
+CKEDITOR_IMAGE_BACKEND = "pillow"
+CKEDITOR_UPLOAD_SLUGIFY_FILENAME = False
+
 
 
 # DRF
