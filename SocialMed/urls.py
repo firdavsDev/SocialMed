@@ -30,6 +30,7 @@ schema_view = get_schema_view(
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    
     path("api/v1/news/", include("api.v1.news.urls")),
     path("api/v1/maps/", include("api.v1.maps.urls")),
     path("api/v1/services/", include("api.v1.services.urls")),
@@ -43,6 +44,7 @@ urlpatterns = [
     # path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     # path('api/token/verify/', TokenVerifyView.as_view(), name='token_verify'),
     
+    path('i18n/', include('django.conf.urls.i18n')),
     path('__debug__/', include('debug_toolbar.urls')),
 ]
 #translate
@@ -50,7 +52,7 @@ urlpatterns += i18n_patterns(
     path('api/v1/news/', include('api.v1.news.urls')),
     path('api/v1/maps/', include('api.v1.maps.urls')),
     path('api/v1/services/', include('api.v1.services.urls')),
-    path('i18n/', include('django.conf.urls.i18n')),
+    
 )
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

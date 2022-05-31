@@ -20,6 +20,10 @@ class NewsList(generics.ListAPIView):
 class NewsDetail(generics.RetrieveAPIView):
     '''Retrieve, update or delete a news instance.'''
     serializer_class = NewsSerializer
-
-    def get_queryset(self, *args, **kwargs):
-        return News.objects.filter(pk=self.kwargs['pk'])
+    queryset = News.objects.all()
+    # permission_classes = []
+    
+    def get_queryset(self,  *args, **kwargs):
+        queryset = super(NewsDetail, self).get_queryset()
+        queryset.filter(pk = self.kwargs.get('pk')).update(views_count=F('views_count')+1)
+        return queryset

@@ -52,6 +52,7 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     "corsheaders.middleware.CorsMiddleware",
     'django.middleware.common.CommonMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -68,6 +69,7 @@ TEMPLATES = [
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
+                'django.template.context_processors.i18n',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
@@ -153,15 +155,15 @@ LANGUAGES = [
     ("en", _("English")),
 ]
 
-LOCALE_PATHS = [
-    BASE_DIR / "locale/",
-]
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, 'locale'),
+)
 
-# MODELTRANSLATION_TRANSLATION_FILES = (
-#     "api.v1.university.translations",
-#     "api.v1.company.translations",
-#     "api.v1.common.translations",
-# )
+MODELTRANSLATION_TRANSLATION_FILES = (
+    "api.v1.maps.translations",
+    "api.v1.news.translations",
+    "api.v1.services.translations",
+)
 
 TIME_ZONE = 'Asia/Tashkent'
 
@@ -169,6 +171,7 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
+DATETIME_FORMAT = "%d-%m-%Y %H:%M:%S"
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/

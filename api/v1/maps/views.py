@@ -22,4 +22,4 @@ class MapsDetail(generics.RetrieveAPIView):
     serializer_class = MapsSerializer
 
     def get_queryset(self, *args, **kwargs):
-        return Maps.objects.filter(pk=self.kwargs['pk'])
+        return Maps.objects.filter(pk=self.kwargs.get('pk'))
