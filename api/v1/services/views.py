@@ -22,4 +22,4 @@ class ServiceDetail(generics.RetrieveAPIView):
     serializer_class = ServiceSerializer
 
     def get_queryset(self, *args, **kwargs):
-        return Service.objects.filter(pk=self.kwargs.get('pk')).update(views_count=F('views_count')+1)
+        return Service.objects.filter(is_active = True)
