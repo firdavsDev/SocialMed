@@ -1,6 +1,5 @@
 from django.db.models import F, Q, Value
 from django.shortcuts import render
-
 # Create your views here.
 from rest_framework import generics, mixins, status
 from rest_framework.response import Response

@@ -1,6 +1,5 @@
 import admin_thumbnails
 from django.contrib import admin
-
 # import export
 from import_export.admin import ImportExportActionModelAdmin
 

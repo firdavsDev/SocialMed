@@ -4,7 +4,6 @@ import os
 from pathlib import Path
 
 import sentry_sdk
-
 # translate
 from django.utils.translation import gettext_lazy as _
 from sentry_sdk.integrations.django import DjangoIntegration
