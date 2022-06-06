@@ -1,10 +1,8 @@
-from django.urls import path, include, re_path
+from django.urls import include, path, re_path
+
 from .views import *
 
-
-
 urlpatterns = [
-    path('', MapsList.as_view(), name='maps-list'),
-    path('<int:pk>/', MapsDetail.as_view(), name='maps-detail'),
+    path("", MapsList.as_view(), name="maps-list"),
+    path("<int:pk>/", MapsDetail.as_view(), name="maps-detail"),
 ]
-

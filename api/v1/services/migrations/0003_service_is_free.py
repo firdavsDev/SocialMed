@@ -6,13 +6,13 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('services', '0002_alter_service_legal_basis'),
+        ("services", "0002_alter_service_legal_basis"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='service',
-            name='is_free',
+            model_name="service",
+            name="is_free",
             field=models.BooleanField(default=False),
         ),
     ]

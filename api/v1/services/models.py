@@ -1,11 +1,13 @@
+from ckeditor.fields import RichTextField
 from django.db import models
 
-from ckeditor.fields import RichTextField
 
 # Create your models here.
 class Service(models.Model):
     name = models.CharField(max_length=100)
-    service_type = models.ForeignKey('ServiceCategory', on_delete=models.CASCADE, null=True, blank=True)
+    service_type = models.ForeignKey(
+        "ServiceCategory", on_delete=models.CASCADE, null=True, blank=True
+    )
     description = RichTextField()
     requirement_dockument = RichTextField()
     orgination = models.CharField(max_length=255)
@@ -17,28 +19,30 @@ class Service(models.Model):
     is_free = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
-    
+
     class Meta:
-        db_table = 'service'
-        ordering = ['-created_at']
-        verbose_name = 'Service'
-        verbose_name_plural = 'Services'
+        db_table = "service"
+        ordering = ["-created_at"]
+        verbose_name = "Service"
+        verbose_name_plural = "Services"
 
     def __str__(self):
         return self.name
 
 
 class ServiceCategory(models.Model):
-    icon = models.ImageField(upload_to='service_category/', null=True, blank=True)
+    icon = models.ImageField(upload_to="service_category/", null=True, blank=True)
     name = models.CharField(max_length=50)
+
     class Meta:
-        db_table = 'service_category'
-        verbose_name = 'Service Category'
-        verbose_name_plural = 'Service Categories'
+        db_table = "service_category"
+        verbose_name = "Service Category"
+        verbose_name_plural = "Service Categories"
+
     def __str__(self):
         return self.name
-        
-        
+
+
 # class ServiceRating(models.Model):
 #     service = models.ForeignKey(Product, on_delete=models.CASCADE)
 #     user = models.ForeignKey(Account, on_delete=models.CASCADE)

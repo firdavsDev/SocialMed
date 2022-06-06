@@ -6,16 +6,20 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('news', '0002_news_views_count'),
+        ("news", "0002_news_views_count"),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='news',
-            options={'ordering': ['-created_at'], 'verbose_name': 'New', 'verbose_name_plural': 'News'},
+            name="news",
+            options={
+                "ordering": ["-created_at"],
+                "verbose_name": "New",
+                "verbose_name_plural": "News",
+            },
         ),
         migrations.AlterModelTable(
-            name='news',
-            table='news',
+            name="news",
+            table="news",
         ),
     ]

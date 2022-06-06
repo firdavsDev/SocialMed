@@ -7,38 +7,38 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('news', '0004_remove_news_updated_at'),
+        ("news", "0004_remove_news_updated_at"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='news',
-            name='description_en',
+            model_name="news",
+            name="description_en",
             field=ckeditor.fields.RichTextField(null=True),
         ),
         migrations.AddField(
-            model_name='news',
-            name='description_ru',
+            model_name="news",
+            name="description_ru",
             field=ckeditor.fields.RichTextField(null=True),
         ),
         migrations.AddField(
-            model_name='news',
-            name='description_uz',
+            model_name="news",
+            name="description_uz",
             field=ckeditor.fields.RichTextField(null=True),
         ),
         migrations.AddField(
-            model_name='news',
-            name='title_en',
+            model_name="news",
+            name="title_en",
             field=models.CharField(max_length=100, null=True),
         ),
         migrations.AddField(
-            model_name='news',
-            name='title_ru',
+            model_name="news",
+            name="title_ru",
             field=models.CharField(max_length=100, null=True),
         ),
         migrations.AddField(
-            model_name='news',
-            name='title_uz',
+            model_name="news",
+            name="title_uz",
             field=models.CharField(max_length=100, null=True),
         ),
     ]

@@ -6,53 +6,53 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('maps', '0006_maps_category'),
+        ("maps", "0006_maps_category"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='categoryofmaps',
-            name='name_en',
+            model_name="categoryofmaps",
+            name="name_en",
             field=models.CharField(max_length=50, null=True),
         ),
         migrations.AddField(
-            model_name='categoryofmaps',
-            name='name_ru',
+            model_name="categoryofmaps",
+            name="name_ru",
             field=models.CharField(max_length=50, null=True),
         ),
         migrations.AddField(
-            model_name='categoryofmaps',
-            name='name_uz',
+            model_name="categoryofmaps",
+            name="name_uz",
             field=models.CharField(max_length=50, null=True),
         ),
         migrations.AddField(
-            model_name='maps',
-            name='address_description_en',
+            model_name="maps",
+            name="address_description_en",
             field=models.CharField(max_length=100, null=True),
         ),
         migrations.AddField(
-            model_name='maps',
-            name='address_description_ru',
+            model_name="maps",
+            name="address_description_ru",
             field=models.CharField(max_length=100, null=True),
         ),
         migrations.AddField(
-            model_name='maps',
-            name='address_description_uz',
+            model_name="maps",
+            name="address_description_uz",
             field=models.CharField(max_length=100, null=True),
         ),
         migrations.AddField(
-            model_name='maps',
-            name='name_en',
+            model_name="maps",
+            name="name_en",
             field=models.CharField(max_length=50, null=True),
         ),
         migrations.AddField(
-            model_name='maps',
-            name='name_ru',
+            model_name="maps",
+            name="name_ru",
             field=models.CharField(max_length=50, null=True),
         ),
         migrations.AddField(
-            model_name='maps',
-            name='name_uz',
+            model_name="maps",
+            name="name_uz",
             field=models.CharField(max_length=50, null=True),
         ),
     ]

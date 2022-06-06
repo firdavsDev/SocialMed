@@ -6,18 +6,23 @@ admin.site.site_header = "Social Med"
 admin.site.index_title = "Social Medga hush kelibsiz"
 
 
-from . import models
-#remove group
+# remove group
 from django.contrib.auth.models import Group
+
+from . import models
+
 admin.site.unregister(Group)
 
-#import export
+# import export
 from import_export.admin import ImportExportActionModelAdmin
+
 
 @admin.register(models.News)
 class NewsAdmin(ImportExportActionModelAdmin, admin.ModelAdmin):
-    list_display = ['id', 'title', 'created_at','is_active' ]
-    list_filter = ['is_active',]
-    list_display_links = ('id', 'title', 'created_at')
-    date_hierarchy = 'created_at'
-    ordering = ['-created_at']
+    list_display = ["id", "title", "created_at", "is_active"]
+    list_filter = [
+        "is_active",
+    ]
+    list_display_links = ("id", "title", "created_at")
+    date_hierarchy = "created_at"
+    ordering = ["-created_at"]
